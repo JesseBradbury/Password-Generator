@@ -18,7 +18,7 @@ var upperList = lowerList.toUpperCase();
 var upperArray = upperList.split("");
 
 var numberList = "1234567890"
-var numerArray = numberList.split("");
+var numberArray = numberList.split("");
 
 var specialList = " !#$%&'()*+,-./:;<=>?@][^_`{|}~";
 var specialArray = specialList.split("");
@@ -67,15 +67,40 @@ function generatePassword() {
   // Write an algorythm that creates a random string, based on the answers given in the above prompts. 
 
 
-let randomPass = [];
+  let randomPass = [];
 
-for (let index = 0; index < length; index++) {
-    var randomChar = lowerArray[Math.floor(Math.random()*lowerArray.length)];
-    randomPass.push(randomChar);
+  for (let index = 0; index < length; index++) {
+    // This works for just the lowercase Array 
+    // var randomChar = lowerArray[Math.floor(Math.random()*lowerArray.length)];
+    // randomPass.push(randomChar);
+    let selectedArrays = [];
+
+    if (lower) {
+      selectedArrays.push(lowerArray)
+    }
+    if (upper) {
+      selectedArrays.push(upperArray)
+    }
+    if (number) {
+      selectedArrays.push(numberArray)
+    }
+    if (special) {
+      selectedArrays.push(specialArray)
+    }
+
+    if (selectedArrays.length > 0) {
+      let randomArray = selectedArrays[Math.floor(Math.random() * selectedArrays.length)];
+      let randomChar = randomArray[Math.floor(Math.random() * randomArray.length)];
+      randomPass.push(randomChar);
+    }
+    else {
+      alert("Please choose atleast one character type.");
+      return;
+    }
+
+    let conPas = randomPass.join("");
+    console.log(conPas);
   }
-
-  let conPas = randomPass.join("")
-  console.log(conPas);
 }
-// Add event listener to generate button
-generateBtn.addEventListener("click", writePassword);
+  // Add event listener to generate button
+  generateBtn.addEventListener("click", writePassword);
