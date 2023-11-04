@@ -8,7 +8,7 @@ Enjoy!
 
 ## Screenshot
 
-![screenshot of asignment](./assets/images/AppSS.jpeg)
+![screenshot of asignment](./assets/images/AppSS.png)
 
 
 ## Link
