@@ -37,7 +37,7 @@ function generatePassword() {
     }
     else {
       alert("Please enter a number between 8 and 128.");
-      return;
+      return "Please try again.";
     };
   }
   while (!(parsedLength >= 8 && parsedLength <= 128 && !isNaN(parsedLength)));
@@ -84,7 +84,7 @@ function generatePassword() {
     // This ensures the user selected atleast one character type, if they did not it alerts them and returns the app. 
     else {
       alert("Please choose atleast one character type.");
-      return;
+      return "Please try again.";
     }
   }
   // This joins the array into a string
@@ -92,8 +92,8 @@ function generatePassword() {
   console.log(conPas);
 
   // This updates the HTML element with the conPas string
-  let passwordElement = document.getElementById("password");
-  passwordElement.value = conPas;
+  // let passwordElement = document.getElementById("password");
+  // passwordElement.value = conPas;
 
   return conPas;
 
